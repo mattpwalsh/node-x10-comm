@@ -45,7 +45,7 @@ var MODULES = [
 
 module.exports = {
 	listPorts: promisify(function (callback, errcallback) {
-		serialport.list(function (err, ports) {
+		serialport.list().then(function (err, ports) {
 			if (err) {
 				errcallback(err);
 			} else {
