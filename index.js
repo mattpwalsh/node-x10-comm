@@ -45,20 +45,16 @@ var MODULES = [
 
 module.exports = {
 	listPorts: promisify(function (callback, errcallback) {
-		serialport.list().then(function (err, ports) {
-			if (err) {
-				errcallback(err);
-			} else {
-				var ret = [];
-				ports.forEach(function (port) {
-					ret.push({
-						comName: port.comName,
-						manufacturer: port.manufacturer,
-					});
+		serialport.list().then((ports) => {
+			var ret = [];
+			ports.forEach(function (port) {
+				ret.push({
+					comName: port.comName,
+					manufacturer: port.manufacturer,
 				});
-				callback(ret);
-			}
-		});
+			});
+			callback(ret);
+		}).catch(errcallback);
 	}),
 	device: function () {
 		var dev = {
