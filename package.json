@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/teledemic/node-x10-comm#readme",
   "dependencies": {
-    "serialport": "7.0.0"
+    "serialport": "9.0.0"
   },
   "devDependencies": {
   },
